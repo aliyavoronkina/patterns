@@ -13,5 +13,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    systemProperty 'selenide.headless', 'true'
+    systemProperty 'chromeoptions.args', '--headless,--disable-gpu,--no-sandbox,--disable-dev-shm-usage'
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat "full"
+    }
 }

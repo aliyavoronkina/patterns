@@ -21,29 +21,11 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Run SUT and wait for startup
-        run: |
-          # Запускаем приложение в фоне
-          java -jar artifacts/app-replan-delivery.jar &
-          
-          # Ждем пока приложение станет доступно
-          echo "Waiting for application to start..."
-          for i in {1..30}; do
-            if curl -f http://localhost:9999 > /dev/null 2>&1; then
-              echo "Application is ready!"
-              break
-            fi
-            echo "Waiting... attempt $i"
-            sleep 2
-          done
-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Test with Gradle
         run: ./gradlew test --info
-        env:
-          SELENIDE_HEADLESS: true
 
       - name: Test Results
         uses: dorny/test-reporter@v1
