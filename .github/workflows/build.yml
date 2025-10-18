@@ -25,19 +25,11 @@ jobs:
       run: chmod +x gradlew
       
     - name: Build and test with Gradle
-      run: ./gradlew test
+      run: ./gradlew test --info
       env:
         SELENIDE_HEADLESS: true
         
-    - name: Upload test reports
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: test-reports
-        path: build/reports/tests/test/
-        retention-days: 30
-        
-    - name: Publish Test Report
+    - name: Test Results
       uses: dorny/test-reporter@v1
       if: always()
       with:
