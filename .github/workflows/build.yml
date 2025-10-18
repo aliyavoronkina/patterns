@@ -9,30 +9,21 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Set up JDK 11
-      uses: actions/setup-java@v4
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: 'gradle'
-        
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-      
-    - name: Build and test with Gradle
-      run: ./gradlew test --info
-      env:
-        SELENIDE_HEADLESS: true
-        
-    - name: Test Results
-      uses: dorny/test-reporter@v1
-      if: always()
-      with:
-        name: JUnit Tests
-        path: build/test-results/test/*.xml
-        reporter: java-junit
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Test with Gradle
+        run: ./gradlew test --info
+        env:
+          SELENIDE_HEADLESS: true
