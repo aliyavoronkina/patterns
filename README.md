@@ -4,7 +4,7 @@
 ![Selenide](https://img.shields.io/badge/Selenide-6.17.2-blue)
 ![JUnit5](https://img.shields.io/badge/JUnit5-5.9.2-green)
 ![Gradle](https://img.shields.io/badge/Gradle-8.13-yellow)
-![GitHub Actions](https://github.com/aliyavoronkina/patterns/actions/workflows/gradle.yml/badge.svg)
+
 
 ## Запуск тестов
 
