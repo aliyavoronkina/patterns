@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.freefair.lombok' version '6.0.0-m2'
 }
 
 repositories {
@@ -13,8 +14,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty 'selenide.headless', 'true'
-    systemProperty 'chromeoptions.args', '--headless,--disable-gpu,--no-sandbox,--disable-dev-shm-usage'
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless', 'false')
 
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"

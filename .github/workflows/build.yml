@@ -17,16 +17,8 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
-
       - name: Run application
         run: java -jar artifacts/app-replan-delivery.jar &
-
-      - name: Wait for app to start
-        run: |
-          sleep 10
-          curl -f http://localhost:9999 || exit 1
 
       - name: Run tests with detailed info
         run: ./gradlew test --info
