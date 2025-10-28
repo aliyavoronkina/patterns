@@ -1,16 +1,16 @@
 # Автотесты для доставки карты
 
-![Java](https://img.shields.io/badge/Java-17-red)
+![Java](https://img.shields.io/badge/Java-11-red)
 ![Selenide](https://img.shields.io/badge/Selenide-6.17.2-blue)
 ![JUnit5](https://img.shields.io/badge/JUnit5-5.9.2-green)
-![Gradle](https://img.shields.io/badge/Gradle-7.4-yellow)
-![GitHub Actions](https://github.com/aliyavoronkina/patterns/actions/workflows/gradle.yml/badge.svg)  ✅ БЕЙДЖ CI
+![Gradle](https://img.shields.io/badge/Gradle-8.13-yellow)
+![GitHub Actions](https://github.com/aliyavoronkina/patterns/actions/workflows/gradle.yml/badge.svg)
 
 ## Запуск тестов
 
 ```bash
-# Обычный запуск (видно браузер)
-./gradlew test
+# Локальный запуск (с браузером)
+./gradlew test -Dselenide.headless=false
 
-# Headless режим (для CI)
-./gradlew test -Dselenide.headless=true
+# Запуск в CI (headless режим)
+./gradlew test
