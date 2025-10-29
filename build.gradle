@@ -15,7 +15,7 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless', 'false')
-    systemProperty 'chromeoptions.args', '--disable-dev-shm-usage,--no-sandbox,--remote-allow-origins=*'
+    systemProperty 'chromeoptions.args', '--disable-dev-shm-usage,--no-sandbox,--remote-allow-origins=*,--user-data-dir=/tmp/chrome_test'
 
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"
